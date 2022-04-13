@@ -23,6 +23,7 @@ def onclick(event):
 
     # Add a point ot the scatter plot
     ax.scatter([event.xdata], [event.ydata], c='r', s=40)
+    ax.arrow(event.xdata, event.ydata, 10.0, 0.0 )
     # Update the scatter point
     fig.canvas.draw() 
     
