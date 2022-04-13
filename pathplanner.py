@@ -23,9 +23,14 @@ def onclick(event):
 
     # Add a point ot the scatter plot
     ax.scatter([event.xdata], [event.ydata], c='r', s=40)
-    ax.arrow(event.xdata, event.ydata, 10.0, 0.0 )
+    ax.arrow(event.xdata, event.ydata, 10.0, 0.0)
+
+    # Add the scatter point to the ax2 plot
+    ax2.scatter([0],[0])
+    ax2.arrow(0,0, 1.0, 0.0)
     # Update the scatter point
-    fig.canvas.draw() 
+    fig.canvas.draw()
+    fig2.canvas.draw() 
     
 # The actual field width that is accessible by the robot
 field_width = 54.0*12.0     # units of inches - 648"
@@ -34,6 +39,7 @@ field_height = 27.0*12.0    # units of inches - 324"
 #image_heght = 526           # units of pixels
 
 fig,ax = plt.subplots()
+fig2,ax2 = plt.subplots()
 
 # Read in the field drawing
 im = plt.imread('FE-2022_crop.png')
@@ -44,8 +50,7 @@ implot = ax.imshow(im, extent = (0,field_width,0,field_height))
 
 # put a blue dot at (324, 162), which is center of field
 #plt.scatter([324], [162])
-# put a red dot, size 40, at center of field
-ax.scatter([324], [162], c='r', s=40)
+ax2.scatter([0],[0])
 
 # Connection id returns an integer and creates a callback to the onclick
 # event
@@ -53,3 +58,4 @@ cid = fig.canvas.mpl_connect('button_press_event', onclick)
 
 # Show the plot
 plt.show()
+
