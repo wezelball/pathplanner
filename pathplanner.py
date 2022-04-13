@@ -5,6 +5,9 @@ Generates a motion profile based on a spline curve defined in an
 actual field layout
 
 Dave Cohen - wezelball
+
+I'm gonna change this code
+
 """
 import matplotlib.pyplot as plt
 
